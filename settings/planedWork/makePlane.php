@@ -1,7 +1,7 @@
 <?php
 
-  echo $_POST['place'];
-  echo $_POST['selWorker']; //teraz warunki i dodawanie do bazy, ewentualnie wywalenie błedu
+  //echo $_POST['place'];
+  //echo $_POST['selWorker']; //teraz warunki i dodawanie do bazy, ewentualnie wywalenie błedu
                             //po pozytywnej operacji wyczysc wszytko do zera nie liczac wyboru miasta
 
   if(session_status()==PHP_SESSION_ACTIVE){
@@ -10,7 +10,27 @@
     session_start();
   }
 
-  if(isset($_POST['place'])&&isset($_POST['selWorker'])&&is_numeric($_POST['place'])&&is_numeric($_POST['selWorker'])){
+  if(isset($_POST['selval'])&&!empty($_POST['selval'])&&is_numeric($_POST['selval'])){
+
+    require_once '../../database.php';
+
+    echo "Numer uzytkownika to: ".$_POST['selval'];
+
+    $idUser=$_POST['selval'];
+
+    $del=$db->prepare('DELETE FROM planed WHERE planed.id_user=:idUser');
+    $del->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+    
+    if($del->execute()){
+
+        echo '<span style="color: green;">Użytkownik został usunięty</span>';
+
+    }else{
+      echo "Nie udało się wykonac zapytania";
+      exit();
+    }
+
+  }else if(isset($_POST['place'])&&isset($_POST['selWorker'])&&is_numeric($_POST['place'])&&is_numeric($_POST['selWorker'])){
 
     $place=$_POST['place'];
     $worker=$_POST['selWorker'];

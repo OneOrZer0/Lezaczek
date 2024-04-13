@@ -191,5 +191,23 @@
               }
           });
       });
+
+      $(document).on('click', ".delButt", function(){
+
+        var selval = $(this).data('valbut');
+
+        $.ajax({
+          url: './settings/planedWork/makePlane.php',
+          type: 'POST',
+          data: {selval: selval},
+          success: function(response) {
+            $('#infoBox').html(response);
+          },
+          error: function(xhr, status, error){
+            $('#infoBox').html('Nie działa');
+            console.error(xhr.responseText);
+          }
+        });
+      });
   });
 </script>

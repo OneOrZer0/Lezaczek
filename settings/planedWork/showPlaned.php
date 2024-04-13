@@ -163,7 +163,7 @@
                         {$w['email']}
                       </div>
                       <div class="col-2">
-                        <button class="delButt" value="{$w['id']}" type="button">Usuń</button>
+                        <button class="delButt" data-valbut="{$w['id']}" type="button">Usuń</button>
                       </div>
                     </div>
                   </div>
