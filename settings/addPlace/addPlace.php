@@ -23,7 +23,7 @@
       //echo $street; //trzeba to zrobić w zmiennej global;nej
 
       echo "Wykonuje kod istniejacej miejscowosci!";
-      echo '<script>$("#showInputs").html("<span style=\"color: green\">Właśnie udało ci się dodać nowe stanowisko do bazy danych!!</span>")</script>';
+      // echo '<script>$("#toolsBox").html("<span style=\"color: green\">Właśnie udało ci się dodać nowe stanowisko do bazy danych!!</span>")</script>';
       echo '<script>$("#showInputs").html("<span style=\"color: green\">Właśnie udało ci się dodać nowe stanowisko do bazy danych!!<button id="refresh" class=\"button\">Kolejne</button></span>")</script>';
 
       if(addData($db,$streetA,$mark,$sunbed,$umbrela,$parawan,NULL)){
