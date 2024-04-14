@@ -120,6 +120,15 @@
         </div>
 
         <div class="col-md-2 col-sm-3 col-4 noPadd">
+          <div class="selTool" data-plik="./settings/setPrice.php">
+            <img src="grafika/ikony/ikona.png" alt="Pracownicy">
+          </div>
+          <div>
+            Ustal ceny oraz kaucje
+          </div>
+        </div>
+
+        <div class="col-md-2 col-sm-3 col-4 noPadd">
           <div class="selTool" data-plik="">
             <img src="grafika/ikony/ikona.png" alt="Pracownicy">
           </div>

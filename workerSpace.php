@@ -29,17 +29,74 @@
     <div class=".container">
       
       <?php
-        require_once 'navBar.php';
+        //sprawdza warunek czy user jest pracownikiem, po czym kaze mu wpisac stan stanowiska aby mógł już dodawać sprzęt
+
+          require_once 'navBar.php'; //nawigacja zostanie załadowana dopiero gdy wprowadzone zostaną dane
+        
       ?>
 
       <div id="displayBox">
         <div class="row noMarg">
           <div class="col-8 offset-2 noPadd">
-            <div class="first-login">
-              <div class="row noMarg">
-                <div class="col-12 noPadd">
-                  <h1>PRZYDZIELONO</h1>
+            <div class="row noMarg">
+              <div class="col-12 noPadd">
+                <div class="first-login">
+                  <form id="startWork">
+                    <div id="startedWork">
+                      <?php
+
+                        if($_SESSION['logged']['access']==1){
+
+                          //Pokazuje na jakie stanowisko ma się udać pracownik
+
+                          require_once './work/showHasWork.php';
+
+                          echo "Zmienna: ".$_SESSION['started'];
+
+                          if(isset($_SESSION['started'])&&$_SESSION['started']=="canStart"){
+
+                            echo "<button>Rozpocznij prace</button>";
+                            //tutaj wchodzi jeżeli jest już godzina 8:45, pojawia się przycisk "ROZPOCZNIJ PRACE"
+
+                          }else if(isset($_SESSION['started'])&&$_SESSION['started']=="started"){
+
+                            require_once './work/checkData.php';
+
+                          }else if(isset($_SESSION['started'])&&$_SESSION['started']=="working"){
+
+                            //tutaj wchodzi jeżeli ktoś już kliknął rozpocznij i zaczął liczyć stan
+
+                          }else{
+
+                          }
+                          //sprawdzić czy już pracownik nie wprowadził stanu
+                          
+                          //niech pokaze się które stanowisko ma obsluzyć
+
+                          //rozpoczac moze dopiero o godzinie 9:00
+
+                          //require_once './work/firstStep.php'; //Wprowadź stan sprzętu plażowego do bazy
+
+                        }else{
+                          
+                        }
+
+                      ?>
+                    </div>
+                    <div class="col-4 offset-4 noPadd">
+                      <!-- <button>Potwierdź</button> -->
+                    </div>
+                  </form>
                 </div>
+              </div>
+              <div class="col-12 noPadd">
+                <form id="">
+                  <div class="row noMarg">
+                    <div class="col-12 noPadd">
+                      Tutaj po wprowadzeniu danych
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -64,6 +121,29 @@
                   }
               });
           });
+
+          $("#startWork").submit(function(event){
+          // Zapobiegamy domyślnej akcji formularza (przeładowaniu strony)
+          event.preventDefault();
+          
+          // Pobieramy dane z formularza
+          var formData = $(this).serialize();
+          
+          // Wysyłamy żądanie AJAX
+          $.ajax({
+              url: './work/checkData.php', // Adres URL pliku PHP, do którego wysyłamy żądanie
+              type: 'POST', // Metoda żądania
+              data: formData, // Dane do przesłania
+              success: function(response) {
+                  // Obsługa sukcesu, np. wyświetlenie odpowiedzi z serwera
+                  $('#startedWork').html(response);
+              },
+              error: function(xhr, status, error) {
+                $('#startedWork').html('Nie działa');
+                  console.error(xhr.responseText);
+              }
+          });
+        });
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
