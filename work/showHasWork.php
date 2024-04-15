@@ -52,7 +52,7 @@
         //if (($current_hour == 8 && $current_minute >= 45) || ($current_hour == 9 && $current_minute <= 59) || ($current_hour == 10 && $current_minute == 0)) {
         
         if(true){
-          if(isset($_SESSION['started'])&&$_SESSION['started']=="working"){
+          if(isset($_SESSION['started'])&&$_SESSION['started']=="working"||$_SESSION['started']=="support"){
             echo "Nic nie robie";
           }else if(isset($_SESSION['started'])&&$_SESSION['started']=="started"){
             echo "Nie zmieniam bo ktoś już liczy!";

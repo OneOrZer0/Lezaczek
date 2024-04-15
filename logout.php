@@ -8,5 +8,6 @@
 
   unset($_SESSION['logged']);
   unset($_SESSION['started']);
+  unset($_SESSION['statusSunPoint']);
   header('Location: index.php');
   exit();

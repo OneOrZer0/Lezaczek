@@ -47,9 +47,15 @@
 
                         if($_SESSION['logged']['access']==1){
 
-                          //Pokazuje na jakie stanowisko ma się udać pracownik
+                          //echo "Zmienna: ".$_SESSION['started'];
 
-                          require_once './work/showHasWork.php';
+                          //Pokazuje na jakie stanowisko ma się udać pracownik
+                          if($_SESSION['started']=="working"||$_SESSION['started']=="support"){
+                            //require_once './work/showHasWork.php';
+                          }else{
+                            require_once './work/showHasWork.php';
+                          }
+                          
 
                           echo "Zmienna: ".$_SESSION['started'];
 
@@ -60,11 +66,19 @@
 
                           }else if(isset($_SESSION['started'])&&$_SESSION['started']=="started"){
 
-                            require_once './work/checkData.php';
+                            require_once './work/checkData.php'; //Tutaj ustawia liczenie stanu
 
                           }else if(isset($_SESSION['started'])&&$_SESSION['started']=="working"){
 
-                            //tutaj wchodzi jeżeli ktoś już kliknął rozpocznij i zaczął liczyć stan
+                            echo "Wszystko policzone, możesz zacząć zarabiać pitos!";
+
+                            require_once './work/masterPoint.php'; //Całkowicie osobny plik z osobnymi skryptami
+
+                          }else if(isset($_SESSION['started'])&&$_SESSION['started']=="support"){
+                            
+                            echo "Wszytko policzone, jesteś supportem";
+
+                            require_once './work/supportPoint.php';
 
                           }else{
 
