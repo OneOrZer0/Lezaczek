@@ -7,7 +7,7 @@
   }
 
   if(!isset($_SESSION['logged'])){
-    header('Location: index.php');
+    //header('Location: index.php');
     exit();
   }else{
 
@@ -50,13 +50,16 @@
                           //echo "Zmienna: ".$_SESSION['started'];
 
                           //Pokazuje na jakie stanowisko ma się udać pracownik
-                          if($_SESSION['started']=="working"||$_SESSION['started']=="support"){
-                            //require_once './work/showHasWork.php';
+                          if(isset($_SESSION['started'])){
+                            if($_SESSION['started']=="working"||$_SESSION['started']=="support"){
+                              //require_once './work/showHasWork.php';
+                            }else{
+                              require_once './work/showHasWork.php';
+                            }
                           }else{
                             require_once './work/showHasWork.php';
                           }
                           
-
                           echo "Zmienna: ".$_SESSION['started'];
 
                           if(isset($_SESSION['started'])&&$_SESSION['started']=="canStart"){

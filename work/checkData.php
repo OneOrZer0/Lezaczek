@@ -91,7 +91,7 @@
             $makeNote->bindValue(':stateScr', $parawany, PDO::PARAM_INT);
             $makeNote->bindValue(':todayDate', $nowTime, PDO::PARAM_STR);
             if($makeNote->execute()){
-    
+
               if($makeNote->rowCount()>0){
     
                 $update=$db->prepare('UPDATE `planed` SET `status` = "working" WHERE `planed`.`id_place`=:idPlace AND planed.id_user=:idUser;'); //jezeli chociaż u jednego pracownika stanowisko jest otwarte to znaczy ze jest otwarte
@@ -152,7 +152,7 @@
 
       //SPRAWDZA CZY JUŻ PRACUJESZ
 
-      $checkWorker=$db->prepare('SELECT status FROM planed WHERE id_user=:idUser');
+      $checkWorker=$db->prepare('SELECT status, id_place FROM planed WHERE id_user=:idUser');
       $checkWorker->bindValue(':idUser', $_SESSION['logged']['id'], PDO::PARAM_INT);
 
       if($checkWorker->execute()){
@@ -160,6 +160,8 @@
         if($checkWorker->rowCount()>0){
 
           $chW=$checkWorker->fetch();
+
+          $_SESSION['idPlace'] = $chW['id_place']; //Ustawia zmienna sesyjna po to aby nie trzeba bylo ciagle tworz
 
           if($chW['status']=="working"){
             $_SESSION['started']="working";
