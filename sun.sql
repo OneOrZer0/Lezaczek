@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2024 at 03:55 AM
+-- Generation Time: Apr 20, 2024 at 08:56 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -46,22 +46,73 @@ INSERT INTO `citys` (`id`, `city`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `history_one_day`
+--
+
+CREATE TABLE `history_one_day` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_place` int(11) NOT NULL,
+  `operation` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `note` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `note_url` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `time` time NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `history_one_day`
+--
+
+INSERT INTO `history_one_day` (`id`, `id_user`, `id_place`, `operation`, `note`, `note_url`, `time`, `date`) VALUES
+(16, 11, 20, 'umb_UM', '', '', '04:40:00', '2024-04-16'),
+(17, 11, 20, 'umb_UM', '', '', '04:40:00', '2024-04-16'),
+(18, 11, 20, 'umb_UP', '', '', '04:40:00', '2024-04-16'),
+(19, 11, 20, 'umb_UP', '', '', '04:40:00', '2024-04-16'),
+(20, 11, 20, 'umb_DP', '', '', '04:40:00', '2024-04-16'),
+(21, 11, 20, 'umb_DP', '', '', '04:40:00', '2024-04-16'),
+(22, 11, 20, 'umb_DP', '', '', '04:40:00', '2024-04-16'),
+(23, 11, 20, 'umb_DP', '', '', '04:40:00', '2024-04-16'),
+(24, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(25, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(26, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(27, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(28, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(29, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(30, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(31, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(32, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16'),
+(33, 11, 20, 'umb_DM', '', '', '04:40:00', '2024-04-16');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notepad`
 --
 
 CREATE TABLE `notepad` (
   `id` int(11) NOT NULL,
   `sunbed` int(11) NOT NULL,
+  `state_sun` int(11) NOT NULL,
   `sun_diner` int(11) NOT NULL,
   `umbrella` int(11) NOT NULL,
+  `state_umb` int(11) NOT NULL,
   `umb_deposit` int(11) NOT NULL,
   `umb_diner` int(11) NOT NULL,
   `screen` int(11) NOT NULL,
+  `state_scr` int(11) NOT NULL,
   `scr_deposit` int(11) NOT NULL,
   `scr_diner` int(11) NOT NULL,
   `id_place` int(11) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `notepad`
+--
+
+INSERT INTO `notepad` (`id`, `sunbed`, `state_sun`, `sun_diner`, `umbrella`, `state_umb`, `umb_deposit`, `umb_diner`, `screen`, `state_scr`, `scr_deposit`, `scr_diner`, `id_place`, `date`) VALUES
+(14, 96, 100, 12, 16, 100, 0, 0, 18, 100, 0, 10, 20, '2024-04-15');
 
 -- --------------------------------------------------------
 
@@ -76,18 +127,21 @@ CREATE TABLE `places` (
   `mark` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `sunbeds` int(11) NOT NULL,
   `umbrellas` int(11) NOT NULL,
-  `screens` int(11) NOT NULL
+  `screens` int(11) NOT NULL,
+  `no_sunbeds` int(11) NOT NULL,
+  `no_umbrellas` int(11) NOT NULL,
+  `no_screens` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Dumping data for table `places`
 --
 
-INSERT INTO `places` (`id`, `id_city`, `street`, `mark`, `sunbeds`, `umbrellas`, `screens`) VALUES
-(20, 2, 'Różana', 'Różana 12', 100, 100, 100),
-(21, 16, 'Piaskowe', 'Piaskowa 3', 100, 100, 100),
-(22, 17, 'test', 'test', 123, 123, 123),
-(24, 19, 'asdasd', 'asdas', 12, 12, 12);
+INSERT INTO `places` (`id`, `id_city`, `street`, `mark`, `sunbeds`, `umbrellas`, `screens`, `no_sunbeds`, `no_umbrellas`, `no_screens`) VALUES
+(20, 2, 'Różana', 'Różana 12', 100, 100, 100, 2, 0, 0),
+(21, 16, 'Piaskowe', 'Piaskowa 3', 100, 100, 100, 0, 0, 0),
+(22, 17, 'test', 'test', 123, 123, 123, 0, 0, 0),
+(24, 19, 'asdasd', 'asdas', 12, 12, 12, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -107,8 +161,8 @@ CREATE TABLE `planed` (
 --
 
 INSERT INTO `planed` (`id`, `id_place`, `id_user`, `status`) VALUES
-(22, 20, 10, 'closed'),
-(23, 20, 11, 'closed');
+(22, 20, 10, 'support'),
+(23, 20, 11, 'working');
 
 -- --------------------------------------------------------
 
@@ -153,6 +207,14 @@ ALTER TABLE `citys`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `history_one_day`
+--
+ALTER TABLE `history_one_day`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_place` (`id_place`);
+
+--
 -- Indexes for table `notepad`
 --
 ALTER TABLE `notepad`
@@ -189,10 +251,16 @@ ALTER TABLE `citys`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT for table `history_one_day`
+--
+ALTER TABLE `history_one_day`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
 -- AUTO_INCREMENT for table `notepad`
 --
 ALTER TABLE `notepad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `places`
@@ -215,6 +283,13 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `history_one_day`
+--
+ALTER TABLE `history_one_day`
+  ADD CONSTRAINT `history_one_day_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `history_one_day_ibfk_2` FOREIGN KEY (`id_place`) REFERENCES `places` (`id`);
 
 --
 -- Constraints for table `notepad`
