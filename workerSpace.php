@@ -122,7 +122,9 @@
     </div>
 
     <script>
+      
       $(document).ready(function(){
+
           $("#controlPanel").click(function(){
               $.ajax({
                   url: 'controlPanel.php',

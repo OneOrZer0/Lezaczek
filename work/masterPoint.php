@@ -300,6 +300,12 @@
             </div>
           </div>
 
+          <div class="col-12 col-md-4 offset-md-4 offset noPadd">
+            <div id="extra-info">
+              Nic tutaj nie ma na obecną chwile
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

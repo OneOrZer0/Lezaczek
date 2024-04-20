@@ -6,9 +6,9 @@
     session_start();
   }
 
-  unset($_SESSION['logged']);
-  unset($_SESSION['started']);
-  unset($_SESSION['statusSunPoint']);
-  unset($_SESSION['idPlace']);
+  unset($_SESSION['logged']); //tablica z danymi zalogowanego użytkownika
+  unset($_SESSION['started']); //status dostępu pracownika, roździela role
+  unset($_SESSION['statusSunPoint']); 
+  unset($_SESSION['idPlace']); //id miejsca w którym aktulanie pracuje pracownik
   header('Location: index.php');
   exit();

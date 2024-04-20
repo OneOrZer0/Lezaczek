@@ -6,39 +6,40 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
 
         <?php
           if($_SESSION['logged']['access']=="7"){
 
             echo<<<end
-              <li class="nav-item">
+              <li data-buttval="adminPanel" class="nav-item">
                 <div class="nav-link" id="controlPanel">Panel Admina</div>
               </li>
             end;
 
           }else if($_SESSION['logged']['access']=="4"){
             echo<<<end
-              <li class="nav-item">
+              <li data-buttval="modPanel" class="nav-item">
                 <a class="nav-link" href="#">Panel Kierownika</a>
               </li>
             end;
           }else if($_SESSION['logged']['access']=="1"){
             echo<<<end
-              <li class="nav-item">
+              <li data-buttval="workerStart" class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Start</a>
+              </li>
+
+              <li data-buttval="workerPanel" class="nav-item">
                 <a class="nav-link" href="#">Panel Pracownika</a>
+              </li>
+
+              <li data-buttval="endWork" class="nav-item">
+                <a class="nav-link" href="#">Zakończenie pracy</a>
               </li>
             end;
           }else{
 
           }
         ?>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
       </ul>
       <span class="navbar-text">
         <?php
@@ -56,3 +57,37 @@
     </div>
   </div>
 </nav>
+<script>
+  $(document).ready(function(){
+
+    $('.nav-item').click(function(){
+
+      console.log("Działa bo wchodze");
+
+      var valButt = $(this).data('buttval');
+
+      if(valButt=="endWork"){
+        $link="./work/finishWork.php";
+      }else{
+        console.log("Inny przypadek");
+        $link="./work/notFunny.php";
+      }
+
+      $.ajax({
+
+        url: $link,
+        type: 'POST',
+        data: {valButt: valButt},
+        success: function(response){
+          $('#extra-info').html(response);
+        },
+        error: function(response){
+          $('#extra-info').html(response);
+        }
+
+      });
+    });
+  });
+</script> 
+
+<!-- // 108 starostwo nwm bip, lub uzad pracy -->
