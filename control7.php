@@ -145,6 +145,15 @@
             Statystyki przychodów
           </div>
         </div>
+
+        <div class="col-md-2 col-sm-3 col-4 noPadd">
+          <div class="selTool" data-plik="./settings/makeAccess.php">
+            <img src="grafika/ikony/ikona.png" alt="Pracownicy">
+          </div>
+          <div>
+            Stwórz uprawnienie
+          </div>
+        </div>
       </div>
     </div>
   </div>
