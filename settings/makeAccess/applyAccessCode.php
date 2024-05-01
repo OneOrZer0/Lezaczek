@@ -54,6 +54,8 @@
 
             echo "Wykonuje zadanie!";
 
+            //Pamiętaj o tym aby dodać dane kierownika który generuje ten kod ponieważ lista ładuje się cała
+
         }else{
 
             echo "Nie można utworzyć kodu, brak wymaganych danych!";
