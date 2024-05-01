@@ -8,8 +8,8 @@
 
     if(isset($_SESSION['logged'])&&$_SESSION['logged']['access']>=4){
 
-        if(file_exists('./database.php')){
-            require_once './database.php';
+        if(file_exists('../../database.php')){
+            require_once '../../database.php';
         }else{
             require_once '../database.php';
         }
@@ -34,30 +34,63 @@
                     <div class="col-6 noPadd">
                         <div id="accessBox">
                             <form id="maUser">
-                                <select name="selUser">
-                                    <?php
+                                <div>
+                                    <select name="selUser">
+                                        <?php
 
-                                        $loadUser=$db->query('SELECT * FROM users WHERE access=1');
+                                            $loadUser=$db->query('SELECT * FROM users WHERE access=1');
 
-                                        if($loadUser->rowCount()>0){
+                                            if($loadUser->rowCount()>0){
 
-                                            echo "<option value=\"none\">Wybierz pracownika</option>";
+                                                echo "<option value=\"none\">Wybierz pracownika</option>";
 
-                                            $loadU=$loadUser->fetchAll();
+                                                $loadU=$loadUser->fetchAll();
 
-                                            foreach($loadU as $lu){
+                                                foreach($loadU as $lu){
 
-                                                echo '<option value="'.$lu['id'].'">'.'['.$lu['id'].']. '.$lu['name'].' '.$lu['surname'].'</option>';
+                                                    echo '<option value="'.$lu['id'].'">'.'['.$lu['id'].']. '.$lu['name'].' '.$lu['surname'].'</option>';
 
+                                                }
+
+                                            }else{
+                                                echo "<option>Bark pracowników</option>";
                                             }
 
-                                        }else{
-                                            echo "<option>Bark pracowników</option>";
-                                        }
+                                        ?>
+                                    </select>
+                                </div>
 
-                                    ?>
-                                </select>
-                                <button>Wybierz</button>
+                                <div>
+                                    <select name="typeCode">
+                                        <option value="none">Wybierz typ kodu</option>
+                                            <?php
+
+                                                $showType=$db->query('SELECT * FROM type_code');
+
+                                                if($showType->rowCount()>0){
+
+                                                    $showT=$showType->fetchAll();
+
+                                                    foreach($showT as $st){
+
+                                                        echo '<option value="'.$st['id'].'">'.$st['name'].'</option>';
+
+                                                    }
+
+                                                }else{
+                                                    
+                                                }
+                                            ?>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <input name="thisCode" type="text" placeholder="Kod dostępu">
+                                </div>
+
+                                <div>
+                                    <button>Wybierz</button>
+                                </div>
                             </form>
                         </div>
                         <div class="row noMarg">
@@ -95,14 +128,14 @@
 
             $.ajax({
 
-                url: './settings/makeAccess/checkUserAccess.php',
+                url: './settings/makeAccess/applyAccessCode.php',
                 type: 'POST',
                 data: dane,
                 success: function(response){
-                    $('#accessBoxInfo').html(response);
+                    $('#toolsBox').html(response);
                 },
                 error: function(response){
-                    $('#accessBoxInfo').html("Coś poszło nie tak");
+                    $('#toolsBox').html("Coś poszło nie tak");
                 }
 
             });
