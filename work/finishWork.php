@@ -28,11 +28,17 @@
             echo<<<end
 
                 <div class="col-12 noPadd">
+                    <div id="extra-info-alert">
+                        Tutaj błędy!
+                    </div>
+                </div>
+                <div class="col-12 noPadd">
                     <div class="row noMarg">
                         <div class="col-12 noPadd">
             end;
 
-                            if($nowTimeSec >= $targetTimeSec){
+                            //if($nowTimeSec >= $targetTimeSec){
+                            if(!true){
 
                                 echo '<button id="finish-work" type="button">Zakończenie pracy</button>';
 
@@ -46,7 +52,8 @@
                         </div>
             end;
 
-                            if($nowTimeSec >= $targetTimeSec){
+                            //if($nowTimeSec >= $targetTimeSec){
+                            if(!true){
 
                                 
 
@@ -62,7 +69,7 @@
                                         <div id="end-code" style="display: none;">
                                             <form id="end-form-code">
                                                 <input type="text" name="endCode">
-                                                <button>Użyj</button>
+                                                <button >Użyj</button>
                                             </form>
                                         </div>
                                     </div>
@@ -150,9 +157,40 @@
                 error: function(response){
                     $('#extra-info').html(response);
                 }
-
             });
+        });
 
+        $('#end-form-code').submit(function(event){
+
+            event.preventDefault();
+
+            var formData = $(this).serialize();
+
+            $.ajax({
+
+                url: './work/finishWorkCode.php',
+                type: 'POST',
+                data: formData,
+                success: function(response){
+                    if(response === 'good_code_1'){
+
+                        $('#extra-info-alert').html("Podano prawidłowy kod!");
+
+                    }else if(response === 'bad_code_1'){
+
+                        $('#extra-info-alert').html("Podano błędny kod!");
+
+                    }else{
+
+                        $('#extra-info-alert').html("Wykryto nieznany błąd");
+
+                    }
+                    
+                },
+                error: function(response){
+                    $('#extra-info').html("test");
+                }
+            });
         });
 
     });

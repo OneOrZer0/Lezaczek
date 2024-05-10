@@ -73,7 +73,7 @@
 
                                                     foreach($showT as $st){
 
-                                                        echo '<option value="'.$st['id'].'">'.$st['name'].'</option>';
+                                                        echo '<option value="'.$st['id'].'">'.$st['type'].'</option>';
 
                                                     }
 

@@ -112,6 +112,9 @@
                     <div class="col-12 noPadd">
                       Tutaj po wprowadzeniu danych
                     </div>
+                    <div id="nivea">
+                      Tutaj pojawi się czy sukces
+                    </div>
                   </div>
                 </form>
               </div>
