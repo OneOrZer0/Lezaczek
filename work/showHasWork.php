@@ -26,16 +26,16 @@
 
           <div class="row noMarg">
             <div class="col-12 noPadd">
-              <h4>Twój przydział</h1>
+              <h4>Twój przydział</h4>
             </div>
-            <div class="col-4 noPadd">
-              {$ch['city']}
+            <div class="col-4 inside-padd-one-call">
+              <div class="one-call">{$ch['city']}</div>
             </div>
-            <div class="col-4 noPadd">
-              {$ch['street']}
+            <div class="col-4 inside-padd-one-call">
+              <div class="one-call">{$ch['street']}</div>
             </div>
-            <div class="col-4 noPadd">
-              {$ch['mark']}
+            <div class="col-4 inside-padd-one-call">
+              <div class="one-call">{$ch['mark']}</div>
             </div>
           </div>
 

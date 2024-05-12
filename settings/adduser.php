@@ -177,89 +177,101 @@
     <button id="back" type="button">Powrot</button>
   </div>
   <div class="row noMarg">
-    <div class="col-8 offset-2 noPadd">
-      <div>
-        <h1>Dodawanie uzytkownika</h1>
+    <div class="col-8 offset-2 noPadd formBox">
+      <div class="titleBar">
+        <h1>DODAWANIE UŻYTKOWNIKA</h1>
       </div>
-      <div>
+      <div class="">
         <form id="formAddUser">
-          <?php
-            if(isset($_SESSION['errName'])){
-              echo $_SESSION['errName'];
-              unset($_SESSION['errName']);
-            }else{
+          <div class="row noMarg">
+            <?php
+              if(isset($_SESSION['errName'])){
+                echo $_SESSION['errName'];
+                unset($_SESSION['errName']);
+              }else{
 
-            }
-          ?>
-          <input type="text" placeholder="Imie" name="name">
-          <?php
-            if(isset($_SESSION['errSurname'])){
-              echo $_SESSION['errSurname'];
-              unset($_SESSION['errSurname']);
-            }else{
-              
-            }
-          ?>
-          <input type="text" placeholder="Nazwisko" name="surname">
-          <?php
-            if(isset($_SESSION['errEmail'])){
-              echo $_SESSION['errEmail'];
-              unset($_SESSION['errEmail']);
-            }else{
-              
-            }
-          ?>
-          <input type="email" placeholder="E-Mail" name="email">
-          <?php
-            if(isset($_SESSION['errPassA'])){
-              echo $_SESSION['errPassA'];
-              unset($_SESSION['errPassA']);
-            }else{
-              
-            }
-          ?>
-          <input type="password" placeholder="Hasło" name="passA">
-          <?php
-            if(isset($_SESSION['errPassB'])){
-              echo $_SESSION['errPassB'];
-              unset($_SESSION['errPassB']);
-            }else{
-              
-            }
-          ?>
-          <input type="password" placeholder="Powtórz hasło" name="passB">
-          <?php
-            if(isset($_SESSION['errTel'])){
-              echo $_SESSION['errTel'];
-              unset($_SESSION['errTel']);
-            }else{
-              
-            }
-          ?>
-          <input type="text" placeholder="nr. Telefonu" name="tel">
-          <input type="text" placeholder="Pesel" name="pesel">
-          <input type="text" placeholder="Miasto" name="city">
-          <input type="text" placeholder="Ulica" name="street">
-          <input type="text" placeholder="Numer domu/Mieszkania" name="nrHome">
-          <?php
-            if(isset($_SESSION['errAccess'])){
-              echo $_SESSION['errAccess'];
-              unset($_SESSION['errAccess']);
-            }else{
-              
-            }
-          ?>
-          <select name="access">
-            <option value="0">Wybierz dostęp</option>
-            <option value="1">Pracownik</option>
-            <option value="4">Kierownik</option>
-            <option value="7">Administrator</option>
-          </select>
-          <div>
-            <button type="button">Wyczysc wpisane dane</button>
-          </div>
-          <div>
-            <button>Potwierdź wpisane dane</button>
+              }
+            ?>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="text" placeholder="Imie" name="name"></div>
+            <?php
+              if(isset($_SESSION['errSurname'])){
+                echo $_SESSION['errSurname'];
+                unset($_SESSION['errSurname']);
+              }else{
+                
+              }
+            ?>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="text" placeholder="Nazwisko" name="surname"></div>
+            <?php
+              if(isset($_SESSION['errEmail'])){
+                echo $_SESSION['errEmail'];
+                unset($_SESSION['errEmail']);
+              }else{
+                
+              }
+            ?>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="email" placeholder="E-Mail" name="email"></div>
+            <?php
+              if(isset($_SESSION['errPassA'])){
+                echo $_SESSION['errPassA'];
+                unset($_SESSION['errPassA']);
+              }else{
+                
+              }
+            ?>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="password" placeholder="Hasło" name="passA"></div>
+            <?php
+              if(isset($_SESSION['errPassB'])){
+                echo $_SESSION['errPassB'];
+                unset($_SESSION['errPassB']);
+              }else{
+                
+              }
+            ?>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="password" placeholder="Powtórz hasło" name="passB"></div>
+            <?php
+              if(isset($_SESSION['errTel'])){
+                echo $_SESSION['errTel'];
+                unset($_SESSION['errTel']);
+              }else{
+                
+              }
+            ?>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="text" placeholder="nr. Telefonu" name="tel"></div>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="text" placeholder="Pesel" name="pesel"></div>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="text" placeholder="Miasto" name="city"></div>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="text" placeholder="Ulica" name="street"></div>
+            <div class="col-12 col-sm-4 col-md-3 oneIn"><input type="text" placeholder="Numer domu/Mieszkania" name="nrHome"></div>
+            <?php
+              if(isset($_SESSION['errAccess'])){
+                echo $_SESSION['errAccess'];
+                unset($_SESSION['errAccess']);
+              }else{
+                
+              }
+            ?>
+            <div class="col-12 col-sm-4 col-md-3 oneIn">
+              <select name="access">
+                <option value="0">Wybierz dostęp</option>
+                <option value="1">Pracownik</option>
+                <option value="4">Kierownik</option>
+                <option value="7">Administrator</option>
+              </select>
+            </div>
+            <div class="col-12 noPadd">
+              <div class="row noMarg">
+                <div class="col-3 offset-3 inButt">
+                  <div>
+                    <button type="button">Wyczysc wpisane dane</button>
+                  </div>
+                </div>
+                <div class="col-3 inButt">
+                  <div>
+                    <button>Potwierdź wpisane dane</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </form>
       </div>

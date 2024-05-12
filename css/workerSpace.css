@@ -1,0 +1,151 @@
+body{
+    background-color: #202020;
+    color: #fff;
+}
+
+.first-login{
+    background-color: #101010;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.first-login button{
+    border: 2px solid rgb(0, 202, 0);
+    background-color: #101010;
+    color: yellow;
+    border-radius: 10px;
+    padding: 5px;
+    width: 200px;
+}
+
+.one-call{
+    background-color: red;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 2px;
+    border-radius: 10px;
+}
+
+.noMarg{
+    margin: 0px;
+}
+
+.noPadd{
+    padding: 0px;
+}
+
+.inside-padd-one-call{
+    padding: 5px;
+}
+
+.selTool{
+    padding: 2px;
+    text-align: center;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    border: 2px solid yellow;
+}
+
+.selTool img{
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.toolTitle{
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #101010;
+    border-radius: 10px;
+    padding: 4px;
+    background-color: yellow;
+}
+
+.selTool:hover{
+    cursor: pointer;
+}
+
+.titleBar h1{
+    letter-spacing: 2px;
+    color: greenyellow;
+    text-align: center;
+    background-color: #101010;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.formBox input[type="text"]{
+    border-radius: 10px;
+    border: 2px solid yellow;
+    color: yellow;
+    background-color: #101010;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+}
+
+.formBox input[type="password"]{
+    border-radius: 10px;
+    border: 2px solid yellow;
+    color: yellow;
+    background-color: #101010;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+}
+
+.formBox input[type="email"]{
+    border-radius: 10px;
+    border: 2px solid yellow;
+    color: yellow;
+    background-color: #101010;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+}
+
+.formBox select{
+    border-radius: 10px;
+    border: 2px solid yellow;
+    color: yellow;
+    background-color: #101010;
+    cursor: pointer;
+    padding: 6px;
+    width: 100%;
+}
+
+.inButt{
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.inButt button{
+    color: #00fffb;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #00fffb;
+    background-color: #101010;
+    font-weight: bold;
+    width: 100%;
+}
+
+#formAddUser{
+    padding: 0px;
+}
+
+.oneIn{
+    padding: 3px;
+}
