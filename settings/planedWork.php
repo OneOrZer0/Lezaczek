@@ -20,9 +20,9 @@
 <div class="row noMarg">
   <div class="">
     <div class="col-8 offset-2 noPadd">
-      <div class="">
+      <div class="boxForm">
         <div class="row noMarg">
-          <div class="col-12 noPadd">
+          <div class="col-12 noPadd selectBox">
             <form id="showList">
               <select name="nameCity">
                 <?php
@@ -51,7 +51,7 @@
           <div class="col-12 noPadd">
             <form id="itsGood">
               <div id="displayList">
-                Tutaj wyświetlą się dostępne stanowiska
+                <div class="titleBar"><h1>Tutaj wyświetlą się dostępne stanowiska</h1></div>
               </div>
 
               <div class="">
@@ -59,20 +59,20 @@
 
                   <div class="col-12 noPadd">
                     <div class="row noMarg">
-                      <div class="col-3 noPadd selType" data-sel="low">
-                        <span style="color: red;">Nieprzydzielony</span>
+                      <div class="col-3 noPadd selType catA" data-sel="low">
+                        <span style="">Nieprzydzielony</span>
                       </div>
 
-                      <div class="col-3 noPadd selType" data-sel="medium">
-                        <span style="color: orange;">Zawieszony</span>
+                      <div class="col-3 noPadd selType catB" data-sel="medium">
+                        <span style="">Zawieszony</span>
                       </div>
 
-                      <div class="col-3 noPadd selType" data-sel="high">
-                        <span style="color: green;">Przydzielony</span>
+                      <div class="col-3 noPadd selType catC" data-sel="high">
+                        <span style="">Przydzielony</span>
                       </div>
 
-                      <div class="col-3 noPadd selType" data-sel="all">
-                        <span style="color: black;">Wszystkie</span>
+                      <div class="col-3 noPadd selType catD" data-sel="all">
+                        <span style="">Wszystkie</span>
                       </div>
                     </div>
                   </div>
@@ -80,27 +80,27 @@
                   <div class="col-12 noPadd">
                     <div class="">
                       <div class="row noMarg">
-                        <div class="col-2 noPadd">
+                        <div class="col-2 opA noPadd">
                           Imie
                         </div>
 
-                        <div class="col-2 noPadd">
+                        <div class="col-2 opB noPadd">
                           Nazwisko
                         </div>  
 
-                        <div class="col-2 noPadd">
+                        <div class="col-2 opA noPadd">
                           Telefon
                         </div>  
 
-                        <div class="col-2 noPadd">
+                        <div class="col-2 opB noPadd">
                           E-Mail
                         </div>
 
-                        <div class="col-2 noPadd">
+                        <div class="col-2 opA noPadd">
                           Status
                         </div>
 
-                        <div class="col-2 noPadd">
+                        <div class="col-2 opB noPadd">
                           Wybór
                         </div>
                       </div>

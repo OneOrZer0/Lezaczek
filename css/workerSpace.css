@@ -149,3 +149,149 @@ body{
 .oneIn{
     padding: 3px;
 }
+
+.titleListBar{
+    color: yellow;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.titleListBar .ocA{
+    padding: 10px;
+    background-color: #101010;
+}
+
+.titleListBar .ocB{
+    padding: 10px;
+    background-color: #303030;
+}
+
+.tableListA{
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #101010;
+    margin-top: 8px;
+}
+
+.tableListB{
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #101010;
+    margin-top: 8px;
+}
+
+.ocA{
+    padding: 8px;
+}
+
+.ocB{
+    padding: 8px;
+}
+
+.tableListA .ocA{
+    background-color: pink;
+}
+
+.tableListA .ocB{
+    background-color: aquamarine;
+}
+
+.tableListB .ocA{
+    background-color: rgb(255, 192, 239);
+}
+
+.tableListB .ocB{
+    background-color: rgb(127, 255, 146);
+}
+
+.oneCell{
+    border-left: 2px solid #101010;
+}
+
+/* planedWork.php */
+
+.boxForm{
+
+
+}
+
+#showList select{
+    padding: 5px;
+    text-align: center;
+    border: 2px solid yellow;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    color: yellow;
+    background-color: #101010;
+}
+
+#showList button{
+    padding: 5px;
+    text-align: center;
+    border: 2px solid yellow;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    color: yellow;
+    background-color: #101010;
+}
+
+.catA{
+    padding: 5px;
+    border-radius: 10px 0px 0px 10px;
+    letter-spacing: 2px;
+    text-align: center;
+    background-color: red;
+    color: #fff;
+}
+
+.catB{
+    padding: 5px;
+    /* border-radius: 10px; */
+    letter-spacing: 2px;
+    text-align: center;
+    background-color: orange;
+    color: #fff;
+}
+
+.catC{
+    padding: 5px;
+    /* border-radius: 10px; */
+    letter-spacing: 2px;
+    text-align: center;
+    background-color: green;
+    color: #fff;
+}
+
+.catD{
+    padding: 5px;
+    border-radius: 0px 10px 10px 0px;
+    letter-spacing: 2px;
+    text-align: center;
+    background-color: #101010;
+    color: #fff;
+}
+
+.selType{
+    padding: 3px;
+}
+
+.selType:hover{
+    cursor: pointer;
+}
+
+#displayList{
+    margin-top: 10px;
+}
+
+.titleBar .opA{
+    border-radius: 10px;
+}
+
+.titleBar .opB{
+
+}

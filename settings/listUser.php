@@ -10,7 +10,46 @@
     header('Location: index.php');
     exit();
   }else{
-    echo "<div>ID Imie Nazwisko Emial Telefon Pesel Miasto Ulica NumerDomu/mieszkania Status</div>";
+    echo<<<end
+      <div class="row noMarg">
+        <div class="col-12 noPadd">
+          <div class="titleListBar">
+            <div class="row noMarg">
+              <div class="col-md-1 ocA noPadd">
+                ID
+              </div>
+              <div class="col-md-1 ocB noPadd">
+                Imie
+              </div>
+              <div class="col-md-2 ocA noPadd">
+                Nazwisko
+              </div>
+              <div class="col-md-2 ocB noPadd">
+                E-Mail
+              </div>
+              <div class="col-md-1 ocA noPadd">
+                Telefon
+              </div>
+              <div class="col-md-1 ocB noPadd">
+                Pesel
+              </div>
+              <div class="col-md-1 ocA noPadd">
+                Miasto
+              </div>
+              <div class="col-md-1 ocB noPadd">
+                Ulica
+              </div>
+              <div class="col-md-1 ocA noPadd">
+                Numer domu/mieszkania
+              </div>
+              <div class="col-md-1 ocB noPadd">
+                Status
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    end;
 
     require_once '../database.php';
 
@@ -19,9 +58,84 @@
     if($load->rowCount()>0){
       $listUser=$load->fetchAll();
 
-      foreach($listUser as $li){
-        echo $li['id'].' | '.$li['name'].' | '.$li['surname'].' | '.$li['email'].' | '.$li['tel'].' | '.$li['pesel'].' | '.$li['city'].' | '.$li['street'].' | '.$li['nr_home'].' | '.$li['status'].'<br/>';
-      }
+        echo<<<end
+
+          <div class="row noMarg">
+
+        end;
+
+        $otherStyle = false;
+
+        foreach($listUser as $li){
+
+        echo<<<end
+
+            <div class="col-12 noPadd">
+
+        end;
+
+          if($otherStyle==false){
+            
+            echo '<div class="tableListA">';
+
+          }else{
+
+            echo '<div class="tableListB">';
+
+          }
+
+          $otherStyle=!$otherStyle;
+
+        echo<<<end
+
+              
+                <div class="row noMarg">
+                  <div class="col-md-1 ocA noPadd">
+                    {$li['id']}
+                  </div>
+                  <div class="col-md-1 ocB oneCell noPadd">
+                    {$li['name']}
+                  </div>
+                  <div class="col-md-2 ocA oneCell noPadd">
+                    {$li['surname']}
+                  </div>
+                  <div class="col-md-2 ocB oneCell noPadd">
+                    {$li['email']}
+                  </div>
+                  <div class="col-md-1 ocA oneCell noPadd">
+                    {$li['tel']}
+                  </div>
+                  <div class="col-md-1 ocB oneCell noPadd">
+                    {$li['pesel']}
+                  </div>
+                  <div class="col-md-1 ocA oneCell noPadd">
+                    {$li['city']}
+                  </div>
+                  <div class="col-md-1 ocB oneCell noPadd">
+                    {$li['street']}
+                  </div>
+                  <div class="col-md-1 ocA oneCell noPadd">
+                    {$li['nr_home']}
+                  </div>
+                  <div class="col-md-1 ocB oneCell noPadd">
+                    {$li['city']}
+                  </div>
+                </div>
+              </div>
+            </div>
+        end;
+
+        }//Koniec petli
+
+        echo<<<end
+
+          </div>
+
+        end;
+
+      // foreach($listUser as $li){
+      //   echo $li['id'].' | '.$li['name'].' | '.$li['surname'].' | '.$li['email'].' | '.$li['tel'].' | '.$li['pesel'].' | '.$li['city'].' | '.$li['street'].' | '.$li['nr_home'].' | '.$li['status'].'<br/>';
+      // }
 
     }else{
       echo "Nikogo nie znaleziono!";
