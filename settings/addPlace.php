@@ -12,36 +12,52 @@
 
 <div class="row noMarg">
   <div class="col-12 noPadd">
-    <div id="">
+    <div class="styleListButton">
       <form id="addCityPlace">
-        <div>
-          Wybierz miejscowość
-        </div>
-        <div id="selectCity">
-          <select name="selCity"> <!-- Wartosc miejscowosci bedzie w zmiennej sesyjnej -->
-            <option value="0">Wybierz miejscowość</option>
-            <option value="n">Ustaw nową</option>
-            <?php
+        <div class="">
+          <div class="row noMarg">
+            <div class="col-10 offset-1 noPadd">
+              <div class="">
+                <div class="row noMarg">
+                  <div class="col-12 noPadd">
+                    <div>
+                      Wybierz miejscowość
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div id="selectCity">
+                      <select name="selCity"> <!-- Wartosc miejscowosci bedzie w zmiennej sesyjnej -->
+                        <option value="0">Wybierz miejscowość</option>
+                        <option value="n">Ustaw nową</option>
+                        <?php
 
-              $loadCity=$db->query('SELECT * FROM citys');
+                          $loadCity=$db->query('SELECT * FROM citys');
 
-              if($loadCity->rowCount()>0){
+                          if($loadCity->rowCount()>0){
 
-                $loadC=$loadCity->fetchAll();
+                            $loadC=$loadCity->fetchAll();
 
-                foreach($loadC as $lc){
-                  echo '<option value='.$lc['id'].'>'.$lc['city'].'</option>';
-                }
+                            foreach($loadC as $lc){
+                              echo '<option value='.$lc['id'].'>'.$lc['city'].'</option>';
+                            }
 
-              }else{
+                          }else{
 
-              }
+                          }
 
-            ?>
-          </select>
-        </div>
-        <div>
-          <button>Wybierz</button>
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-9 noPadd">
+                    <div>
+                      <button>Wybierz</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </form>
       <button id="refresh" type="button">Odświerz miejscowości</button>

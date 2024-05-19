@@ -26,7 +26,17 @@
         echo '<span style="color: green;">Użytkownik został usunięty</span>';
 
     }else{
-      echo "Nie udało się wykonac zapytania";
+      echo<<<end
+
+        <div class="row noMarg">
+          <div class="col-12 noPadd">
+            <div class="errorPlane">
+              Nie udało się wykonać zapytania!
+            </div>
+          </div>
+        </div>
+
+      end;
       exit();
     }
 
@@ -57,16 +67,46 @@
             if(addPlane($db, $worker, $place)){
 
             }else{
-              echo "Nie udało się dodać planu!";
+              echo<<<end
+
+                <div class="row noMarg">
+                  <div class="col-12 noPadd">
+                    <div class="errorPlane">
+                      Nie udało się dodać planu!
+                    </div>
+                  </div>
+                </div>
+
+              end;
               exit();
             }
 
           }else{
-            echo "Nie wykonano operacji!";
+            echo<<<end
+
+              <div class="row noMarg">
+                <div class="col-12 noPadd">
+                  <div class="errorPlane">
+                    Nie udało się wykonać operacji!
+                  </div>
+                </div>
+              </div>
+
+            end;
           }
 
         }else{
-          echo "Nie udało się usunąć uplanu!";
+          echo<<<end
+
+            <div class="row noMarg">
+              <div class="col-12 noPadd">
+                <div class="errorPlane">
+                  Nie udało się usunąć planu!
+                </div>
+              </div>
+            </div>
+
+          end;
           exit();
         }
 
@@ -75,19 +115,49 @@
         if(addPlane($db, $worker, $place)){
 
         }else{
-          echo "Nie udało się dodać planuuu!";
+          echo<<<end
+
+            <div class="row noMarg">
+              <div class="col-12 noPadd">
+                <div class="errorPlane">
+                  Nie udało się dodać planu
+                </div>
+              </div>
+            </div>
+
+          end;
           exit();
         }
 
       }
 
     }else{
-      echo "Nie udało się wykonac zadania!";
+      echo<<<end
+
+          <div class="row noMarg">
+            <div class="col-12 noPadd">
+              <div class="errorPlane">
+                Nie udało się wykonać zadania!
+              </div>
+            </div>
+          </div>
+
+      end;
       exit();
     }
 
   }else{
-    echo "Nie udało się wykonac zadania!";
+    echo<<<end
+
+          <div class="row noMarg">
+            <div class="col-12 noPadd">
+              <div class="errorPlane">
+                Nie udało się wykonać zadania!
+              </div>
+            </div>
+          </div>
+
+    end;
     exit();
   }
 
@@ -100,16 +170,46 @@
 
       if($addData->rowCount()>0){
 
-        echo "Udało się przydzielić prace!";
+        echo<<<end
+
+          <div class="row noMarg">
+            <div class="col-12 noPadd">
+              <div class="errorPlane">
+                Udało się przydzielić prace!
+              </div>
+            </div>
+          </div>
+
+        end;
         return true;
 
       }else{
-        echo "Nie udało sie przydzielić stanowiska!";
+        echo<<<end
+
+          <div class="row noMarg">
+            <div class="col-12 noPadd">
+              <div class="errorPlane">
+                Nie udało się przydzielić stanowiska!
+              </div>
+            </div>
+          </div>
+
+        end;
         return false;
       }
 
     }else{
-      echo "Nie udało się wykonac zadania!";
+      echo<<<end
+
+          <div class="row noMarg">
+            <div class="col-12 noPadd">
+              <div class="errorPlane">
+                Nie udało się wykonać zadania!
+              </div>
+            </div>
+          </div>
+
+        end;
       return false;
     }
   }

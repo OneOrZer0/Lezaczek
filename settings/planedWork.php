@@ -124,7 +124,15 @@
               </div>
             </form>
             <div id="infoBox">
-              Tutaj pojawią się błedy!
+
+              <div class="row noMarg">
+                <div class="col-12 noPadd">
+                  <div class="errorPlane">
+                    Tutaj pojawią się informacje o błędach jak i postępach
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

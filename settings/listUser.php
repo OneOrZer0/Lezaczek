@@ -12,7 +12,7 @@
   }else{
     echo<<<end
       <div class="row noMarg">
-        <div class="col-12 noPadd">
+        <div class="col-12 titlePadd">
           <div class="titleListBar">
             <div class="row noMarg">
               <div class="col-md-1 ocA noPadd">
@@ -40,7 +40,7 @@
                 Ulica
               </div>
               <div class="col-md-1 ocA noPadd">
-                Numer domu/mieszkania
+                Nr. kwatery
               </div>
               <div class="col-md-1 ocB noPadd">
                 Status
@@ -60,7 +60,9 @@
 
         echo<<<end
 
-          <div class="row noMarg">
+        <div class="titlePaddA">
+          <div class="tableListA">
+            <div class="row noMarg">
 
         end;
 
@@ -68,27 +70,10 @@
 
         foreach($listUser as $li){
 
-        echo<<<end
+          echo<<<end
 
             <div class="col-12 noPadd">
-
-        end;
-
-          if($otherStyle==false){
-            
-            echo '<div class="tableListA">';
-
-          }else{
-
-            echo '<div class="tableListB">';
-
-          }
-
-          $otherStyle=!$otherStyle;
-
-        echo<<<end
-
-              
+              <div class="tableListB">
                 <div class="row noMarg">
                   <div class="col-md-1 ocA noPadd">
                     {$li['id']}
@@ -129,6 +114,8 @@
 
         echo<<<end
 
+              </div>
+            </div>
           </div>
 
         end;

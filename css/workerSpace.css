@@ -150,63 +150,90 @@ body{
     padding: 3px;
 }
 
+.titlePadd{
+    padding: 10px 10px 0px 10px;
+}
+
+.titlePaddA{
+    padding: 0px 10px 10px 10px;
+}
+
 .titleListBar{
     color: yellow;
+    border-left: 2px solid yellow;
+    border-right: 2px solid yellow;
+    border-top: 2px solid yellow;
+    padding: 10px 0px 10px 0px;
     text-align: center;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .titleListBar .ocA{
-    padding: 10px;
-    background-color: #101010;
+    /* background-color: #101010; */
 }
 
 .titleListBar .ocB{
-    padding: 10px;
-    background-color: #303030;
+    /* background-color: #303030; */
 }
 
 .tableListA{
+    /* margin-top: 10px; */
+    border-left: 2px solid yellow;
+    border-right: 2px solid yellow;
+    border-bottom: 2px solid yellow;
+    /* padding: 0px 10px 10px 10px; */
     text-align: center;
-    letter-spacing: 2px;
-    font-weight: 700;
-    font-size: 14px;
-    color: #101010;
-    margin-top: 8px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .tableListB{
     text-align: center;
     letter-spacing: 2px;
-    font-weight: 700;
+    /* font-weight: 700; */
     font-size: 14px;
     color: #101010;
-    margin-top: 8px;
+    /* margin-top: 8px; */
 }
 
 .ocA{
-    padding: 8px;
+    /* padding: 8px; */
 }
 
 .ocB{
-    padding: 8px;
+    /* padding: 8px; */
 }
 
 .tableListA .ocA{
-    background-color: pink;
+    font-size: 16px;
+    padding: 5px;
+    border-right: 2px solid yellow;
+    border-top: 2px solid yellow;
+    color: #fff;
 }
 
 .tableListA .ocB{
-    background-color: aquamarine;
+    font-size: 16px;
+    padding: 5px;
+    border-right: 2px solid yellow;
+    border-top: 2px solid yellow;
+    color: #fff;
+}
+
+.tableListA .ocC{
+    font-size: 16px;
+    padding: 5px;
+    border-top: 2px solid yellow;
+    color: #fff;
 }
 
 .tableListB .ocA{
-    background-color: rgb(255, 192, 239);
+
 }
 
 .tableListB .ocB{
-    background-color: rgb(127, 255, 146);
+    
 }
 
 .oneCell{
@@ -437,4 +464,35 @@ body{
     border-bottom: 0px;
     padding: 5px;
     text-align: center;
+}
+
+.errorPlane{
+    padding: 10px;
+    font-size: 20px;
+    color: orange;
+    border: 2px solid orange;
+    letter-spacing: 2px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.styleListButton button{
+    padding: 5px;
+    text-align: center;
+    border: 2px solid yellow;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    color: yellow;
+    background-color: #101010;
+}
+
+.styleListButton select{
+    padding: 5px;
+    text-align: center;
+    border: 2px solid yellow;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    color: yellow;
+    background-color: #101010;
 }

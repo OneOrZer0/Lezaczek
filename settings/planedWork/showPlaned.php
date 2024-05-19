@@ -38,7 +38,17 @@
             
 
           }else{
-            echo "Nie udało się wykonac zapytania!";
+            echo<<<end
+
+              <div class="row noMarg">
+                <div class="col-12 noPadd">
+                  <div class="errorPlane">
+                    Nie udało się wykonać zapytania!
+                  </div>
+                </div>
+              </div>
+
+            end;
             exit();
           }
 
@@ -241,13 +251,13 @@
                       <span style="color: red;">
                         !
                       </span>
-                      - Pracownik jest już gdzieś przypisany
+                      - Do stanowiska nie jest nikt przypisany!
                     </div>
                     <div class="col-6 opD noPadd">
                       <span style="color: green;">
                         $
                       </span>
-                      - Pracownik nie jest nigdzie przypisany
+                      - Do stanowiska jest już ktoś przypisany!
                     </div>
                   </div>
                 </div>
