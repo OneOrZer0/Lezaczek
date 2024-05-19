@@ -267,7 +267,7 @@
                 </div>
                 <div class="col-3 inButt">
                   <div>
-                    <button>Potwierdź wpisane dane</button>
+                    <button>Potwierdź dane</button>
                   </div>
                 </div>
               </div>

@@ -54,27 +54,27 @@
 
             <div class="row noMarg">
               <div class="col-12 noPadd">
-                <div class="">
+                <div class="tableCellA">
                   <div class="row noMarg">
-                    <div class="col-md-2">
+                    <div class="col-md-2 opA noPadd">
                       Miejscowość
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 opB noPadd">
                       Ulica
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 opA noPadd">
                       Leżaki
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 opB noPadd">
                       Parasole
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 opA noPadd">
                       Parawany
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-1 opB noPadd">
                       Status
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-1 opA noPadd">
                       Wybór
                     </div>
                   </div>
@@ -82,105 +82,180 @@
               </div>
           end;
 
-          foreach($listA as $li){ //Niech sprawdza czy nie jest już ktoś przypisany
 
-            echo<<<end
+          echo<<<end
 
-              <div class="col-12 noPadd">
-                <div class="">
+            <div class="col-12 noPadd tableCellB marg">
+              <div class="row noMarg">
+
+          end;
+
+              foreach($listA as $li){ //Niech sprawdza czy nie jest już ktoś przypisany
+
+                echo<<<end
+
+                  <div class="col-12 noPadd">
+                    <div class="">
+                      <div class="row noMarg">
+                        <div class="col-md-2 opA noPadd">
+                          {$li['city']}
+                        </div>
+                        <div class="col-md-2 opB noPadd">
+                          {$li['street']}
+                        </div>
+                        <div class="col-md-2 opA noPadd">
+                          {$li['sunbeds']}
+                        </div>
+                        <div class="col-md-2 opB noPadd">
+                          {$li['umbrellas']}
+                        </div>
+                        <div class="col-md-2 opA noPadd">
+                          {$li['screens']}
+                        </div>
+                        <div class="col-md-1 opB noPadd">
+                end;
+
+                        $planed=$db->prepare('SELECT users.id, users.name, users.surname, users.email, users.tel FROM planed, users WHERE planed.id_place=:idPlace AND users.id=planed.id_user');
+                        $planed->bindValue(':idPlace', $li['id'], PDO::PARAM_INT);
+
+                        if($planed->execute()){
+
+                          if($planed->rowCount()>0){
+
+                            $who=$planed->fetchAll();
+                            echo '<span style="color: green;">$</span>';
+
+                          }else{
+
+                            echo '<span style="color: red;">!</span>';
+
+                          }
+
+                        }else{
+
+                          echo '<span style="color: orange;">?</span>';
+
+                        }
+
+                echo<<<end
+                        </div>
+                        <div class="col-md-1 opC noPadd">
+                          <input type="radio" value="{$li['id']}" name="place">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                end;
+
+                echo '<div class="col-12 noPadd">';
+
+                if(isset($who)){
+
+                  echo<<<end
+
+                  <div class="">
+                    <div class="row noMarg">
+                      <div class="col-12 noPadd">
+                        <div class="titleRowBox">
+                          <div class="titleRow">
+                            <div class="row noMarg">
+                              <div class="col-2 noPadd">
+                                Imie
+                              </div>
+                              <div class="col-3 noPadd">
+                                Nazwisko
+                              </div>
+                              <div class="col-2 noPadd">
+                                Telefon
+                              </div>
+                              <div class="col-3 noPadd">
+                                E-Mail
+                              </div>
+                              <div class="col-2 noPadd">
+                                Akcja
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 tableBoxPadd">
+                        <div class="tableBox">
+                          <div class="row noMarg">
+
+                  end;
+
+                  foreach($who as $w){
+
+                    echo<<<end
+                  
+                          <div class="col-12 noPadd">
+                            <div class="tableCellD">
+                              <div class="row noMarg">
+                                <div class="col-2 opA">
+                                  {$w['name']}
+                                </div>
+                                <div class="col-3 opB">
+                                  {$w['surname']}
+                                </div>
+                                <div class="col-2 opA">
+                                  {$w['tel']}
+                                </div>
+                                <div class="col-3 opB">
+                                  {$w['email']}
+                                </div>
+                                <div class="col-2 opC">
+                                  <button class="delButt" data-valbut="{$w['id']}" type="button">Usuń</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        
+                    end;
+
+                  }
+
+                  echo<<<end
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  end;
+
+                  unset($who);
+
+                }else{
+                  //echo "To nie istnieje!";
+                }
+
+                echo '</div>';
+
+              }
+
+          echo<<<end
+                <div class="col-12 noPadd">
                   <div class="row noMarg">
-                    <div class="col-md-2 noPadd">
-                      {$li['city']}
+                    <div class="col-6 opD noPadd">
+                      <span style="color: red;">
+                        !
+                      </span>
+                      - Pracownik jest już gdzieś przypisany
                     </div>
-                    <div class="col-md-2 noPadd">
-                      {$li['street']}
-                    </div>
-                    <div class="col-md-2 noPadd">
-                      {$li['sunbeds']}
-                    </div>
-                    <div class="col-md-2 noPadd">
-                      {$li['umbrellas']}
-                    </div>
-                    <div class="col-md-2 noPadd">
-                      {$li['screens']}
-                    </div>
-                    <div class="col-md-1 noPadd">
-            end;
-
-                    $planed=$db->prepare('SELECT users.id, users.name, users.surname, users.email, users.tel FROM planed, users WHERE planed.id_place=:idPlace AND users.id=planed.id_user');
-                    $planed->bindValue(':idPlace', $li['id'], PDO::PARAM_INT);
-
-                    if($planed->execute()){
-
-                      if($planed->rowCount()>0){
-
-                        $who=$planed->fetchAll();
-                        echo '<span style="color: green;">$</span>';
-
-                      }else{
-
-                        echo '<span style="color: red;">!</span>';
-
-                      }
-
-                    }else{
-
-                      echo '<span style="color: orange;">?</span>';
-
-                    }
-
-            echo<<<end
-                    </div>
-                    <div class="col-md-1 noPadd">
-                      <input type="radio" value="{$li['id']}" name="place">
+                    <div class="col-6 opD noPadd">
+                      <span style="color: green;">
+                        $
+                      </span>
+                      - Pracownik nie jest nigdzie przypisany
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-            end;
+          end;
 
-            echo '<div class="col-12 noPadd">';
-
-            if(isset($who)){
-
-              foreach($who as $w){
-
-                echo<<<end
-              
-                  <div class="">
-                    <div class="row noMarg">
-                      <div class="col-2">
-                        {$w['name']}
-                      </div>
-                      <div class="col-2">
-                        {$w['surname']}
-                      </div>
-                      <div class="col-2">
-                        {$w['tel']}
-                      </div>
-                      <div class="col-2">
-                        {$w['email']}
-                      </div>
-                      <div class="col-2">
-                        <button class="delButt" data-valbut="{$w['id']}" type="button">Usuń</button>
-                      </div>
-                    </div>
-                  </div>
-              
-                end;
-
-              }
-
-              unset($who);
-
-            }else{
-              //echo "To nie istnieje!";
-            }
-
-            echo '</div>';
-
-          }
 
           //SPRAWDZA CZY JUŻ KTOŚ JEST PRZYPISANY DO STANOWISKA
 

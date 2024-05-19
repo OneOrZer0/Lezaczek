@@ -38,22 +38,22 @@
       echo<<<end
 
         <div class="row noMarg">
-          <div class="col-2 noPadd">
+          <div class="col-2 opA noPadd">
             {$sa['name']}
           </div>
-          <div class="col-2 noPadd">
+          <div class="col-2 opB noPadd">
             {$sa['surname']}
           </div>
-          <div class="col-2 noPadd">
+          <div class="col-2 opA noPadd">
             {$sa['tel']}
           </div>
-          <div class="col-2 noPadd">
+          <div class="col-2 opB noPadd">
             {$sa['email']}
           </div>
-          <div class="col-2 noPadd">
+          <div class="col-2 opA noPadd">
             
           </div>
-          <div class="col-2 noPadd">
+          <div class="col-2 opC noPadd">
             <input type="radio" name="selWorker" value="{$sa['id']}">
           </div>
         </div>

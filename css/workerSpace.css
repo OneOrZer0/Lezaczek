@@ -295,3 +295,146 @@ body{
 .titleBar .opB{
 
 }
+
+.tableCellA{
+    border-radius: 10px;
+    padding: 10px;
+    color: yellow;
+    border: 2px solid yellow;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.tableCellA .opA{
+    
+}
+
+.tableCellA .opB{
+    
+}
+
+.tableCellB{
+    border: 2px solid yellow;
+    /* padding: 5px; */
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tableCellB .opA{
+    border-right: 2px solid yellow;
+    /* border: 2px solid yellow; */
+    border-bottom: 2px solid yellow;
+    padding: 5px;
+}
+
+.tableCellB .opB{
+    border-right: 2px solid yellow;
+    /* border: 2px solid yellow; */
+    border-bottom: 2px solid yellow;
+    padding: 5px;
+}
+
+.tableCellB .opC{
+    /* border-right: 2px solid yellow; */
+    /* border: 2px solid yellow; */
+    border-bottom: 2px solid yellow;
+    padding: 5px;
+}
+
+.tableCellB .opD{
+    padding: 10px;
+}
+
+.tableCellB .marg{
+    margin-bottom: 10px !important;
+}
+
+.tableCellB .opC button{
+    color: aqua;
+    margin: 0px;
+    border: 2px solid aqua;
+    text-align: center;
+    font-size: 14px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 5px;
+}
+
+.tableCellB button{
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    background-color: #101010;
+    color: aqua;
+    border: 2px solid aqua;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.titleBarA h1{
+    color: yellowgreen;
+    text-align: center;
+    padding: 10px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.tableCellC{
+    border-left: 2px solid aqua;
+    border-right: 2px solid aqua;
+    border-bottom: 2px solid aqua;
+    padding: 5px;
+}
+
+.titleRowBox{
+    padding: 10px 10px 0px 10px;
+}
+
+.titleRow{
+    border-top: 2px solid aqua;
+    border-left: 2px solid aqua;
+    border-right: 2px solid aqua;
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.tableBox{
+    border-left: 2px solid aqua;
+    border-right: 2px solid aqua;
+    border-bottom: 2px solid aqua;
+    border-radius: 0px 0px 10px 10px;
+    /* padding: 10px; */
+}
+
+.tableBoxPadd{
+    padding: 0px 10px 10px 10px;
+}
+
+.tableCellD .opA{
+    border-right: 2px solid aqua;
+    border-top: 2px solid aqua;
+    border-bottom: 0px;
+    padding: 5px;
+    text-align: center;
+}
+
+.tableCellD .opB{
+    border-right: 2px solid aqua;
+    border-top: 2px solid aqua;
+    border-bottom: 0px;
+    padding: 5px;
+    text-align: center;
+}
+
+.tableCellD .opC{
+    border-top: 2px solid aqua;
+    border-bottom: 0px;
+    padding: 5px;
+    text-align: center;
+}

@@ -78,7 +78,7 @@
                   </div>
 
                   <div class="col-12 noPadd">
-                    <div class="">
+                    <div class="tableCellA">
                       <div class="row noMarg">
                         <div class="col-2 opA noPadd">
                           Imie
@@ -108,9 +108,15 @@
                   </div>
 
                   <div class="col-12 noPadd">
-                    <div id="showUser">
-                      <div class="row noMarg">
-
+                    <div class="tableCellB">
+                      <div id="showUser">
+                        <div class="row noMarg">
+                          <div class="col-12 noPadd">
+                            <div class="titleBarA">
+                              <h1>Tutaj pojawi się lista pracowników</h1>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
