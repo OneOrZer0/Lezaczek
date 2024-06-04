@@ -33,7 +33,7 @@
       } //Walidacja oraz wykonanie kodu
 
     }else{
-      echo "<button>Potwierdź</button>";
+      echo '<div class="col-2 inOne noPadd"><button>Potwierdźz</button></div>';
       echo "Nie wykonam tego zadania!";
     }
 
@@ -43,19 +43,32 @@
 
     echo "Wybrano nowe miasto";
 
+    echo<<<end
+
+      <div class="row noMarg">
+        <div class="col-10 offset-1 noPadd">
+          <div class="row noMarg">
+            <div class="col-12 noPadd">
+              <div class="titleBar">
+                <h1>DODAWANIE NOWEGO STANOWISKA</h1>
+              </div>
+            </div>
+
+    end;
+
     $good=true;
 
     if(!isset($_POST['newCity'])||empty($_POST['newCity'])){
 
       $good=false;
 
-      echo '<span style="color: red">*</span><input type="text" name="newCity" placeholder="Nowa miejscowość">';
+      echo '<div class="col-2 inOneErr noPadd"><input type="text" name="newCity" placeholder="Nowa miejscowość"></div>';
       
     }else{
       global $newCity;
       $newCity=$_POST['newCity'];
 
-      echo '<input type="text" name="newCity" placeholder="Nowa miejscowość">';
+      echo '<div class="col-2 inOne noPadd"><input type="text" name="newCity" placeholder="Nowa miejscowość"></div>';
     }
 
     //checkData();
@@ -63,7 +76,7 @@
     //if($good==true){
     if(checkData($good)==true){
       echo "Wykonuje kod miejscowosci ktora nie istnieje!";
-      echo "<button>Potwierdź</button>";
+      echo "<button>Potwierdźa</button>";
 
       if(addData($db,$streetA,$mark,$sunbed,$umbrela,$parawan,$newCity)==false){
         echo "Wskazano bład!";
@@ -73,7 +86,7 @@
       } //Walidacja oraz wykonanie kodu
 
     }else{
-      echo "<button>Potwierdź</button>";
+      echo '<div class="col-2 noPadd inOne"><button>Potwierdźb</button></div>';
       echo "Nie wykonam tego zadania!";
     }
   }else{
@@ -88,42 +101,42 @@
 
       $good=false;
 
-      echo '<span style="color: red">*</span><input type="text" name="street" placeholder="Ulica/nazwa zejścia">';
+      echo '<div class="col-2 inOneErr noPadd"><input type="text" name="street" placeholder="Ulica/nazwa zejścia"></div>';
       
     }else{
       global $streetA;
       $streetA=$_POST['street'];
 
-      echo '<input type="text" name="street" placeholder="Ulica/nazwa zejścia">';
+      echo '<div class="col-2 inOne noPadd"><input type="text" name="street" placeholder="Ulica/nazwa zejścia"></div>';
     }
 
     if(!isset($_POST['mark'])||empty($_POST['mark'])){
 
       $good=false;
 
-      echo '<span style="color: red">*</span><input type="text" name="mark" placeholder="Pinezka">';
+      echo '<div class="col-2 inOneErr noPadd"></span><input type="text" name="mark" placeholder="Pinezka"></div>';
       
     }else{
       global $mark;
       $mark=$_POST['mark'];
 
-      echo '<input type="text" name="mark" placeholder="Pinezka">';
+      echo '<div class="col-2 inOne noPadd"><input type="text" name="mark" placeholder="Pinezka"></div>';
     }
 
     if(!isset($_POST['sunbed'])||empty($_POST['sunbed'])){
 
       $good=false;
 
-      echo '<span style="color: red">*</span><input type="text" name="sunbed" placeholder="Ile leżaków">';
+      echo '<div class="col-2 inOneErr noPadd"><input type="text" name="sunbed" placeholder="Ile leżaków"></div>';
       
     }else{
       global $sunbed;
       $sunbed=$_POST['sunbed'];
 
       if(is_numeric($sunbed)&&$sunbed>0){
-        echo '<input type="text" name="sunbed" placeholder="Ile leżaków" value="'.$sunbed.'">';
+        echo '<div class="col-2 inOne noPadd"><input type="text" name="sunbed" placeholder="Ile leżaków" value="'.$sunbed.'"></div>';
       }else{
-        echo '<span style="color: red;">Zła liczba</span><input type="text" name="sunbed" placeholder="Ile leżaków">';
+        echo '<div class="col-2 inOne noPadd"><input type="text" name="sunbed" placeholder="Ile leżaków"></div>';
       }
 
     }
@@ -132,16 +145,16 @@
 
       $good=false;
 
-      echo '<span style="color: red">*</span><input type="text" name="parawan" placeholder="Ile parawanów">';
+      echo '<div class="col-2 inOneErr noPadd"><input type="text" name="parawan" placeholder="Ile parawanów"></div>';
       
     }else{
       global $parawan;
       $parawan=$_POST['parawan'];
 
       if(is_numeric($parawan)&&$parawan>0){
-        echo '<input type="text" name="parawan" placeholder="Ile parawanów" value="'.$parawan.'">';
+        echo '<div class="col-2 inOne noPadd"><input type="text" name="parawan" placeholder="Ile parawanów" value="'.$parawan.'"></div>';
       }else{
-        echo '<span style="color: red;">Zła liczba</span><input type="text" name="parawan" placeholder="Ile parawanów">';
+        echo '<div class="col-2 inOne noPadd"><input type="text" name="parawan" placeholder="Ile parawanów"></div>';
       }
 
     }
@@ -150,22 +163,31 @@
 
       $good=false;
 
-      echo '<span style="color: red">*</span><input type="text" name="umbrela" placeholder="Ile parasoli">';
+      echo '<div class="col-2 inOneErr noPadd"><input type="text" name="umbrela" placeholder="Ile parasoli"></div>';
       
     }else{
       global $umbrela;
       $umbrela=$_POST['umbrela'];
 
       if(is_numeric($umbrela)&&$umbrela>0){
-        echo '<input type="text" name="umbrela" placeholder="Ile parasoli" value="'.$umbrela.'">';
+        echo '<div class="col-2 inOneErr noPadd"><input type="text" name="umbrela" placeholder="Ile parasoli" value="'.$umbrela.'"></div>';
       }else{
-        echo '<span style="color: red;">Zła liczba</span><input type="text" name="umbrela" placeholder="Ile parasoli">';
+        echo '<div class="col-2 inOne noPadd"><input type="text" name="umbrela" placeholder="Ile parasoli"></div>';
       }
       
     }
 
     return $good;
   }
+
+  echo<<<end
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  end;
 
   function addData($db, $streetA, $mark, $sunbed, $umbrella, $screen, $newCity){
 

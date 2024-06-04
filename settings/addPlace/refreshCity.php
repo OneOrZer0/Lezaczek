@@ -2,6 +2,8 @@
 
   require_once '../../database.php';
 
+  // error_log("To jest wiadomość logowana do logu serwera.");
+
 ?>
 
 <select name="selCity"> <!-- Wartosc miejscowosci bedzie w zmiennej sesyjnej -->
@@ -25,3 +27,5 @@
 
   ?>
 </select>
+<button>Wybierz</button>
+<button id="refresh" type="button">Odświerz miejscowościi</button>

@@ -150,6 +150,56 @@ body{
     padding: 3px;
 }
 
+.inOne{
+    padding: 3px;
+}
+
+.inOneErr{
+    padding: 3px;
+}
+
+.inOnePadd{
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.inOne input{
+    width: 100%;
+    padding: 8px;
+    color: yellow;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    background-color: #101010;
+}
+
+.inOneErr{
+    padding: 3px;
+}
+
+.inOneErr input{
+    width: 100%;
+    padding: 8px;
+    color: red;
+    border: 2px solid red;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    background-color: #101010;
+}
+
+.inOne button{
+    width: 100%;
+    padding: 10px;
+    color: aqua !important;
+    border: 2px solid aqua !important;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    background-color: #101010;
+}
+
 .titlePadd{
     padding: 10px 10px 0px 10px;
 }
@@ -163,6 +213,7 @@ body{
     border-left: 2px solid yellow;
     border-right: 2px solid yellow;
     border-top: 2px solid yellow;
+    border-bottom: 2px solid yellow;
     padding: 10px 0px 10px 0px;
     text-align: center;
     font-size: 18px;
@@ -180,9 +231,9 @@ body{
 
 .tableListA{
     /* margin-top: 10px; */
-    border-left: 2px solid yellow;
-    border-right: 2px solid yellow;
-    border-bottom: 2px solid yellow;
+    /* border-left: 2px solid yellow; */
+    /* border-right: 2px solid yellow; */
+    /* border-bottom: 2px solid yellow; */
     /* padding: 0px 10px 10px 10px; */
     text-align: center;
     border-radius: 0px 0px 10px 10px;
@@ -195,6 +246,11 @@ body{
     font-size: 14px;
     color: #101010;
     /* margin-top: 8px; */
+    border-left: 2px solid yellow;
+    border-bottom: 2px solid yellow;
+    border-right: 2px solid yellow;
+    /* border-bottom: 2px solid yellow; */
+    border-radius: 0px 0px 10px 10px;
 }
 
 .ocA{
@@ -208,16 +264,16 @@ body{
 .tableListA .ocA{
     font-size: 16px;
     padding: 5px;
-    border-right: 2px solid yellow;
-    border-top: 2px solid yellow;
+    /* border-right: 2px solid yellow; */
+    /* border-top: 2px solid yellow; */
     color: #fff;
 }
 
 .tableListA .ocB{
     font-size: 16px;
     padding: 5px;
-    border-right: 2px solid yellow;
-    border-top: 2px solid yellow;
+    /* border-right: 2px solid yellow; */
+    /* border-top: 2px solid yellow; */
     color: #fff;
 }
 
@@ -237,7 +293,21 @@ body{
 }
 
 .oneCell{
-    border-left: 2px solid #101010;
+    border-left: 2px solid yellow;
+    color: orange;
+    font-size: 14px;
+    /* font-weight: 700; */
+    letter-spacing: 2px;
+    padding: 5px 0px 5px 0px;
+}
+
+.oneCellA{
+    /* border-left: 2px solid yellow; */
+    color: orange;
+    font-size: 14px;
+    /* font-weight: 700; */
+    letter-spacing: 2px;
+    padding: 5px 0px 5px 0px;
 }
 
 /* planedWork.php */

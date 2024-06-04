@@ -51,24 +51,24 @@
 
             <div class="row noMarg">
               <div class="col-12 noPadd">
-                <div class="">
+                <div class="titleListBar">
                   <div class="row noMarg">
-                    <div class="col-md-2">
+                    <div class="col-md-2 ocA noPadd">
                       Miejscowość
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 ocB noPadd">
                       Ulica
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 ocA noPadd">
                       Pinezka
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 ocB noPadd">
                       Leżaki
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 ocA noPadd">
                       Parasole
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 ocB noPadd">
                       Parawany
                     </div>
                   </div>
@@ -81,24 +81,24 @@
             echo<<<end
 
               <div class="col-12 noPadd">
-                <div class="">
+                <div class="tableListB">
                   <div class="row noMarg">
-                    <div class="col-md-2 noPadd">
+                    <div class="col-md-2 ocA oneCellA noPadd">
                       {$li['city']}
                     </div>
-                    <div class="col-md-2 noPadd">
+                    <div class="col-md-2 ocB oneCell noPadd">
                       {$li['street']}
                     </div>
-                    <div class="col-md-2 noPadd">
+                    <div class="col-md-2 ocA oneCell noPadd">
                       {$li['mark']}
                     </div>
-                    <div class="col-md-2 noPadd">
+                    <div class="col-md-2 ocB oneCell noPadd">
                       {$li['sunbeds']}
                     </div>
-                    <div class="col-md-2 noPadd">
+                    <div class="col-md-2 ocA oneCell noPadd">
                       {$li['umbrellas']}
                     </div>
-                    <div class="col-md-2 noPadd">
+                    <div class="col-md-2 ocC oneCell noPadd">
                       {$li['screens']}
                     </div>
                   </div>

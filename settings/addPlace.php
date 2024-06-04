@@ -24,7 +24,7 @@
                       Wybierz miejscowość
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-12 inOnePadd">
                     <div id="selectCity">
                       <select name="selCity"> <!-- Wartosc miejscowosci bedzie w zmiennej sesyjnej -->
                         <option value="0">Wybierz miejscowość</option>
@@ -47,11 +47,8 @@
 
                         ?>
                       </select>
-                    </div>
-                  </div>
-                  <div class="col-9 noPadd">
-                    <div>
                       <button>Wybierz</button>
+                      <button id="refresh" type="button">Odświerz miejscowości</button>
                     </div>
                   </div>
                 </div>
@@ -60,7 +57,6 @@
           </div>
         </div>
       </form>
-      <button id="refresh" type="button">Odświerz miejscowości</button>
       <form id="createPlace">
         <div id="showInputs">
 

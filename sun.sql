@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 01 Maj 2024, 22:12
+-- Czas generowania: 04 Cze 2024, 08:02
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -24,6 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `avalible_code`
+--
+
+CREATE TABLE `avalible_code` (
+  `id` int(11) NOT NULL,
+  `code` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_moderator` int(11) NOT NULL,
+  `id_type_code` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `citys`
 --
 
@@ -39,9 +53,14 @@ CREATE TABLE `citys` (
 INSERT INTO `citys` (`id`, `city`) VALUES
 (2, 'Rewal'),
 (16, 'Dziwnówek'),
-(17, 'test'),
-(18, 'jhasdj'),
-(19, 'Kraków');
+(17, 'Gryfice'),
+(18, 'Koszalin'),
+(19, 'Mielno'),
+(20, 'Stargard'),
+(21, 'Tarchomin'),
+(22, 'Radom'),
+(23, 'Warszawa'),
+(24, 'Kraków');
 
 -- --------------------------------------------------------
 
@@ -307,7 +326,18 @@ INSERT INTO `history_one_day` (`id`, `id_user`, `id_place`, `operation`, `note`,
 (255, 11, 20, 'scr_SM', '', '', '21:25:00', '2024-04-20'),
 (256, 11, 20, 'sun_SP', '', '', '21:41:00', '2024-04-20'),
 (257, 11, 20, 'scr_SM', '', '', '21:42:00', '2024-04-20'),
-(258, 11, 20, 'sun_SM', '', '', '21:42:00', '2024-04-20');
+(258, 11, 20, 'sun_SM', '', '', '21:42:00', '2024-04-20'),
+(259, 11, 20, 'sun_SM', '', '', '18:36:00', '2024-05-12'),
+(260, 11, 20, 'sun_SM', '', '', '18:36:00', '2024-05-12'),
+(261, 11, 20, 'sun_SM', '', '', '18:36:00', '2024-05-12'),
+(262, 11, 20, 'sun_SM', '', '', '18:36:00', '2024-05-12'),
+(263, 11, 20, 'sun_SP', '', '', '18:36:00', '2024-05-12'),
+(264, 11, 20, 'sun_SP', '', '', '18:36:00', '2024-05-12'),
+(265, 11, 20, 'sun_SP', '', '', '18:36:00', '2024-05-12'),
+(266, 11, 20, 'sun_SP', '', '', '18:36:00', '2024-05-12'),
+(267, 11, 20, 'sun_SP', '', '', '18:36:00', '2024-05-12'),
+(268, 11, 20, 'sun_DM', '', '', '18:36:00', '2024-05-12'),
+(269, 11, 20, 'sun_DM', '', '', '18:36:00', '2024-05-12');
 
 -- --------------------------------------------------------
 
@@ -337,7 +367,7 @@ CREATE TABLE `notepad` (
 --
 
 INSERT INTO `notepad` (`id`, `sunbed`, `state_sun`, `sun_diner`, `umbrella`, `state_umb`, `umb_deposit`, `umb_diner`, `screen`, `state_scr`, `scr_deposit`, `scr_diner`, `id_place`, `date`) VALUES
-(14, 0, 100, 0, 0, 100, 0, 0, 0, 100, 0, 0, 20, '2024-04-15');
+(14, 5, 100, 0, 0, 100, 0, 0, 0, 100, 0, 0, 20, '2024-04-15');
 
 -- --------------------------------------------------------
 
@@ -366,7 +396,12 @@ INSERT INTO `places` (`id`, `id_city`, `street`, `mark`, `sunbeds`, `umbrellas`,
 (20, 2, 'Różana', 'Różana 12', 100, 100, 100, 2, 0, 0),
 (21, 16, 'Piaskowe', 'Piaskowa 3', 100, 100, 100, 0, 0, 0),
 (22, 17, 'test', 'test', 123, 123, 123, 0, 0, 0),
-(24, 19, 'asdasd', 'asdas', 12, 12, 12, 0, 0, 0);
+(24, 19, 'asdasd', 'asdas', 12, 12, 12, 0, 0, 0),
+(25, 20, 'Szczecińska', '0288.32432.4324.234', 100, 100, 100, 0, 0, 0),
+(26, 21, 'asda', 'asdas', 100, 100, 100, 0, 0, 0),
+(27, 22, 'sdfsd', 'sadasd', 100, 100, 100, 0, 0, 0),
+(28, 23, 'jksjdhasjk', 'dsjkadjkash', 100, 100, 100, 0, 0, 0),
+(29, 24, 'sada', 'sada', 100, 100, 100, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -397,9 +432,15 @@ INSERT INTO `planed` (`id`, `id_place`, `id_user`, `status`) VALUES
 
 CREATE TABLE `type_code` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `id_moderator` int(11) NOT NULL
+  `type` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `type_code`
+--
+
+INSERT INTO `type_code` (`id`, `type`) VALUES
+(1, 'close');
 
 -- --------------------------------------------------------
 
@@ -431,11 +472,20 @@ INSERT INTO `users` (`id`, `name`, `surname`, `email`, `pass`, `tel`, `pesel`, `
 (9, 'Marek', 'Śnigurowicz', 'mpog.marko@wp.pl', '$2y$10$Y96cQoJOwMa62Np3VX0rhuXKp5Ia4KLlG5tJT/Vc9xNYE8uv6UGQi', 2147483647, 0, 'offline', 7, '', '', ''),
 (10, 'Test', 'Testowy', 'test@wp.pl', '$2y$10$ffQ4rOyfLYeXVwk/5gqtmOtJ/S8X36yNofKQ.U.r5RzkGwQw02Jre', 888888888, 9898989, 'offline', 1, 'Testonia', 'Testa', '12'),
 (11, 'Grzegorz', 'Garski', 'ggarski@wp.pl', '$2y$10$HObzIUE2k/MRrXxdZFarDO4AqyLgVozYLMhKffueK.2rDB2P2qu2G', 897876767, 2147483647, 'offline', 1, 'Malbork', 'Malborska', '12'),
-(12, 'andrzej', 'głupek', 'aglupek@gmail.com', '$2y$10$PsroWKQd7iGQWzARtLKWNuWt4Rygg68OvtG80prPLeu0KRDY/PN.i', 876567453, 999999999, 'offline', 1, 'Resko', 'Debila', '12');
+(12, 'Andrzej', 'Gulek', 'aglupek@gmail.com', '$2y$10$PsroWKQd7iGQWzARtLKWNuWt4Rygg68OvtG80prPLeu0KRDY/PN.i', 876567453, 999999999, 'offline', 1, 'Resko', 'Alibe', '12');
 
 --
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `avalible_code`
+--
+ALTER TABLE `avalible_code`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_moderator` (`id_moderator`),
+  ADD KEY `id_type_code` (`id_type_code`);
 
 --
 -- Indeksy dla tabeli `citys`
@@ -475,8 +525,7 @@ ALTER TABLE `planed`
 -- Indeksy dla tabeli `type_code`
 --
 ALTER TABLE `type_code`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_moderator` (`id_moderator`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `users`
@@ -489,16 +538,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `avalible_code`
+--
+ALTER TABLE `avalible_code`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT dla tabeli `citys`
 --
 ALTER TABLE `citys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT dla tabeli `history_one_day`
 --
 ALTER TABLE `history_one_day`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
 
 --
 -- AUTO_INCREMENT dla tabeli `notepad`
@@ -510,7 +565,7 @@ ALTER TABLE `notepad`
 -- AUTO_INCREMENT dla tabeli `places`
 --
 ALTER TABLE `places`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT dla tabeli `planed`
@@ -522,7 +577,7 @@ ALTER TABLE `planed`
 -- AUTO_INCREMENT dla tabeli `type_code`
 --
 ALTER TABLE `type_code`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
@@ -533,6 +588,14 @@ ALTER TABLE `users`
 --
 -- Ograniczenia dla zrzutów tabel
 --
+
+--
+-- Ograniczenia dla tabeli `avalible_code`
+--
+ALTER TABLE `avalible_code`
+  ADD CONSTRAINT `avalible_code_ibfk_1` FOREIGN KEY (`id_moderator`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `avalible_code_ibfk_2` FOREIGN KEY (`id_type_code`) REFERENCES `type_code` (`id`),
+  ADD CONSTRAINT `avalible_code_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 
 --
 -- Ograniczenia dla tabeli `history_one_day`
@@ -552,12 +615,6 @@ ALTER TABLE `notepad`
 --
 ALTER TABLE `places`
   ADD CONSTRAINT `places_ibfk_1` FOREIGN KEY (`id_city`) REFERENCES `citys` (`id`);
-
---
--- Ograniczenia dla tabeli `type_code`
---
-ALTER TABLE `type_code`
-  ADD CONSTRAINT `type_code_ibfk_1` FOREIGN KEY (`id_moderator`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
